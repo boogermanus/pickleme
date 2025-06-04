@@ -3,21 +3,23 @@
 <PageTitle>Pickle Me</PageTitle>
 
 <EditForm Model="Model" FormName="pickle-me" OnSubmit="Submit">
-    <label>
-        Parts: <InputNumber @bind-Value="Model!.Cups"></InputNumber>
-    </label>
-    <button type="submit">Submit</button>
+    <label>Cup(s) of Brine</label>
+    <InputNumber @bind-Value="Model!.Cups" class="form-control" style="width: 100px;"></InputNumber>
+    <button class="btn btn-primary mt-2" type="submit">Submit</button>
 </EditForm>
-@if (_submitted)
-{
-    <p>@Model?.Water</p>
-    <p>@Model?.Vinegar</p>
-    <p>@Model?.Sugar</p>
-    <p>@Model?.Salt</p>
-}
+<div class="mt-2">
+    @if (_submitted)
+    {
+        
+        <p>Water: @Model?.Water (cups)</p>
+        <p>Vinegar: @Model?.Vinegar (cups)</p>
+        <p>Sugar: @Model?.Sugar (cups)</p>
+        <p>Salt: @Model?.Salt (tbsp)</p>
+    }
+</div>
 
 @code {
-    
+
     private PickleMeModel? Model { get; set; }
     private bool _submitted;
 

@@ -10,9 +10,9 @@ public class PickleMeModel
 
     public void Calculate()
     {
-        Water = Cups / 2;
-        Vinegar = Cups / 2;
-        Sugar = Cups / 4;
-        Salt = Cups * 16 / 16;
+        Water = (double)Cups / 2;
+        Vinegar = (double)Cups / 2;
+        Sugar = (double)Cups / 4;
+        Salt = (double)Cups * 16 / 16;
     }
 }
