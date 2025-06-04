@@ -1,0 +1,52 @@
+﻿@page "/"
+
+<PageTitle>Pickle Me</PageTitle>
+
+<EditForm Model="Model" FormName="pickle-me" OnSubmit="Submit">
+    <label>
+        Parts: <InputNumber @bind-Value="Model!.Cups"></InputNumber>
+    </label>
+    <button type="submit">Submit</button>
+</EditForm>
+@if (_submitted)
+{
+    <p>@Model?.Water</p>
+    <p>@Model?.Vinegar</p>
+    <p>@Model?.Sugar</p>
+    <p>@Model?.Salt</p>
+}
+
+@code {
+    
+    private class PickleMeModel
+    {
+        public double Cups { get; set; }
+        public double Water { get; set; }
+        public double Vinegar { get; set; }
+        public double Sugar { get; set; }
+        public double Salt { get; set; }
+
+        public void Calculate()
+        {
+            Water = Cups / 2;
+            Vinegar = Cups / 2;
+            Sugar = Cups / 4;
+            Salt = Cups * 16 / 16;
+        }
+    }
+    
+    private PickleMeModel? Model { get; set; }
+    private bool _submitted;
+
+    protected override void OnInitialized()
+    {
+        Model ??= new PickleMeModel();
+    }
+
+    private void Submit()
+    {
+        Model?.Calculate();
+        _submitted = true;
+    }
+
+}
