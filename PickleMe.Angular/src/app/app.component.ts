@@ -13,6 +13,7 @@ import {MeasurementComponent} from './components/measurement/measurement.compone
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
+    MatButtonModule,
     FormsModule,
     MeasurementComponent
   ],

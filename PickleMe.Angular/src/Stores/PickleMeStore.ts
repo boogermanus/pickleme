@@ -17,11 +17,18 @@ export const PickleMeStore = signalStore(
     sugar: computed(() => store.cups() / 4),
     salt: computed(() => store.cups() * 16 / 16)
   })),
-  withMethods((store) => ({
-    updateCups(cups: number): void {
-      if (cups >= 0) {
-        patchState(store, {cups: cups});
+  withMethods((store) => (
+    {
+      updateCups(cups: number): void {
+        if (cups >= 0 && cups <= 10) {
+          patchState(store, {cups: cups});
+        }
+        else {
+          patchState(store, {cups: 0});
+        }
+      },
+      reset(): void {
+        patchState(store, {cups: 0});
       }
-    }
-  }))
+    }))
 );

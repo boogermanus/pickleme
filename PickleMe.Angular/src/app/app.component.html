@@ -16,5 +16,8 @@
       <app-measurement [value]="store.sugar()"></app-measurement>
       <app-measurement [value]="store.salt()" measurement="tbsp"></app-measurement>
     </mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button (click)="store.reset()">Reset</button>
+    </mat-card-actions>
   </mat-card>
 </div>
