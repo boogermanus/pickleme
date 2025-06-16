@@ -1,33 +1,20 @@
 <div class="container">
-  <div class="mt-2">
-    <mat-form-field>
-      <mat-label>Cups of Brine</mat-label>
-      <input matInput type="number" max="10" min="0" [ngModel]="store.cups()"
-             (ngModelChange)="store.updateCups($event)">
-    </mat-form-field>
-  </div>
-  <div class="mt-2">
-    <mat-form-field>
-      <mat-label>Water (cups)</mat-label>
-      <input matInput type="number" [value]="store.water()" disabled>
-    </mat-form-field>
-  </div>
-  <div class="mt-2">
-    <mat-form-field>
-      <mat-label>Vinegar (cups)</mat-label>
-      <input matInput type="number" [value]="store.vinegar()" disabled>
-    </mat-form-field>
-  </div>
-  <div class="mt-2">
-    <mat-form-field>
-      <mat-label>Sugar (cups)</mat-label>
-      <input matInput type="number" [value]="store.sugar()" disabled>
-    </mat-form-field>
-  </div>
-  <div class="mt-2">
-    <mat-form-field>
-      <mat-label>Salt (tbsp)</mat-label>
-      <input matInput type="number" [value]="store.salt()" disabled>
-    </mat-form-field>
-  </div>
+  <mat-card class="mt-2">
+    <mat-card-title>
+      <h4 class="m-2">Pickle Me!</h4>
+    </mat-card-title>
+    <mat-card-content>
+      <div class="mt-2">
+        <mat-form-field>
+          <mat-label>Cups of Brine</mat-label>
+          <input matInput type="number" max="10" min="0" [ngModel]="store.cups()"
+                 (ngModelChange)="store.updateCups($event)">
+        </mat-form-field>
+      </div>
+      <app-measurement [value]="store.water()"></app-measurement>
+      <app-measurement [value]="store.vinegar()"></app-measurement>
+      <app-measurement [value]="store.sugar()"></app-measurement>
+      <app-measurement [value]="store.salt()" measurement="tbsp"></app-measurement>
+    </mat-card-content>
+  </mat-card>
 </div>
