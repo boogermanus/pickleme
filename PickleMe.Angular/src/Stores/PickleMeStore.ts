@@ -1,4 +1,4 @@
-﻿import {signalStore, withComputed, withState} from '@ngrx/signals';
+﻿import {patchState, signalStore, withComputed, withMethods, withState} from '@ngrx/signals';
 import {computed} from '@angular/core';
 
 type PickleMeState = {
@@ -16,5 +16,12 @@ export const PickleMeStore = signalStore(
     vinegar: computed(() => store.cups() / 2),
     sugar: computed(() => store.cups() / 4),
     salt: computed(() => store.cups() * 16 / 16)
+  })),
+  withMethods((store) => ({
+    updateCups(cups: number): void {
+      if (cups > 0) {
+        patchState(store, {cups: cups});
+      }
+    }
   }))
-)
+);

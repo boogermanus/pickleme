@@ -1,3 +1,13 @@
 <div class="container">
-  <p>App works!</p>
+  <div class="mt-2">
+    <mat-form-field>
+      <mat-label>Cups of Brine</mat-label>
+      <input matInput type="number" max="10" min="0" [ngModel]="store.cups()" (ngModelChange)="store.updateCups($event)">
+    </mat-form-field>
+  </div>
+  {{store.cups()}}
+  <div class="mt-2">
+      <mat-label>Water</mat-label>
+      <p>{{store.water()}}</p>
+  </div>
 </div>
