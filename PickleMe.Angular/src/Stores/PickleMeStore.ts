@@ -19,7 +19,7 @@ export const PickleMeStore = signalStore(
   })),
   withMethods((store) => ({
     updateCups(cups: number): void {
-      if (cups > 0) {
+      if (cups >= 0) {
         patchState(store, {cups: cups});
       }
     }

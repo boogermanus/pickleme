@@ -2,12 +2,32 @@
   <div class="mt-2">
     <mat-form-field>
       <mat-label>Cups of Brine</mat-label>
-      <input matInput type="number" max="10" min="0" [ngModel]="store.cups()" (ngModelChange)="store.updateCups($event)">
+      <input matInput type="number" max="10" min="0" [ngModel]="store.cups()"
+             (ngModelChange)="store.updateCups($event)">
     </mat-form-field>
   </div>
-  {{store.cups()}}
   <div class="mt-2">
-      <mat-label>Water</mat-label>
-      <p>{{store.water()}}</p>
+    <mat-form-field>
+      <mat-label>Water (cups)</mat-label>
+      <input matInput type="number" [value]="store.water()" disabled>
+    </mat-form-field>
+  </div>
+  <div class="mt-2">
+    <mat-form-field>
+      <mat-label>Vinegar (cups)</mat-label>
+      <input matInput type="number" [value]="store.vinegar()" disabled>
+    </mat-form-field>
+  </div>
+  <div class="mt-2">
+    <mat-form-field>
+      <mat-label>Sugar (cups)</mat-label>
+      <input matInput type="number" [value]="store.sugar()" disabled>
+    </mat-form-field>
+  </div>
+  <div class="mt-2">
+    <mat-form-field>
+      <mat-label>Salt (tbsp)</mat-label>
+      <input matInput type="number" [value]="store.salt()" disabled>
+    </mat-form-field>
   </div>
 </div>
