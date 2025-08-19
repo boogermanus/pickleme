@@ -15,6 +15,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 })
 export class MeasurementComponent {
   value = input<number>(0);
-  @Input() ingredient: string = '';
-  @Input() measurement: string = 'cups';
+  ingredient = input<string>('');
+  measurement = input<string>('cups');
 }
